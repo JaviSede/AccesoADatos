@@ -2,75 +2,75 @@ import java.io.*;
 
 
 public class Ejercicio2Cesar {
-        public static void main(String[] args) throws IOException {
-            ejercicio2Encriptar();
+    public static void main(String[] args) throws IOException {
+        ejercicio2Encriptar();
+    }
+
+    public static void ejercicio2Encriptar() throws IOException {
+        String abecedario = "abcdefghijklmnñopqrstvwxyz";
+
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
+
+        String fichero = "";
+        String linea = "";
+
+        while ((linea = br.readLine()) != null){
+            fichero += linea;
+        }
+        br.close();
+
+        System.out.println(fichero);
+        char [] ficherochar = fichero.toCharArray();
+        // (pos + desp) % abecedario.length
+        for (int i = 0; i < ficherochar.length; i++) {
+            if (ficherochar[i] == abecedario.indexOf(i)) {
+                ficherochar[i] = (char) abecedario.indexOf((i + 1) % 27);
+            }
         }
 
-        public static void ejercicio2Encriptar() throws IOException {
-            String abecedario = "abcdefghijklmnñopqrstvwxyz";
+        String cadenaNueva = "";
+        for (int i = 0; i < ficherochar.length; i++){
+            cadenaNueva += ficherochar[i];
+        }
+        System.out.println(cadenaNueva);
 
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
+        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
 
-            String fichero = "";
-            String linea = "";
+        pw.println(cadenaNueva);
+        pw.close();
+    }
 
-            while ((linea = br.readLine()) != null){
-                fichero += linea;
-            }
-            br.close();
+    public static void ejercicio2Desencriptar() throws IOException {
+        String abecedario = "abcdefghijklmnñopqrstvwxyz";
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
 
-            System.out.println(fichero);
-            char [] ficherochar = fichero.toCharArray();
-            // (pos + desp) % abecedario.length
-            for (int i = 0; i < ficherochar.length; i++) {
-                if (ficherochar[i] == abecedario.indexOf(i)) {
-                    ficherochar[i] = (char) abecedario.indexOf((i + 1) % 27);
-                }
-            }
+        String fichero = "";
+        String linea;
 
-            String cadenaNueva = "";
-            for (int i = 0; i < ficherochar.length; i++){
-                cadenaNueva += ficherochar[i];
-            }
-            System.out.println(cadenaNueva);
-
-            PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
-
-            pw.println(cadenaNueva);
-            pw.close();
+        while ((linea  = br.readLine()) != null){
+            fichero += linea;
         }
 
-        public static void ejercicio2Desencriptar() throws IOException {
-            String abecedario = "abcdefghijklmnñopqrstvwxyz";
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
+        br.close();
 
-            String fichero = "";
-            String linea;
-
-            while ((linea  = br.readLine()) != null){
-                fichero += linea;
+        System.out.println(fichero);
+        char [] ficherochar = fichero.toCharArray();
+        // (pos + desp) % abecedario.length
+        for (int i = 0; i < ficherochar.length; i++) {
+            if (ficherochar[i] == abecedario.indexOf(i)) {
+                ficherochar[i] = (char) abecedario.indexOf((i - 1) % 27);
             }
-
-            br.close();
-
-            System.out.println(fichero);
-            char [] ficherochar = fichero.toCharArray();
-            // (pos + desp) % abecedario.length
-            for (int i = 0; i < ficherochar.length; i++) {
-                if (ficherochar[i] == abecedario.indexOf(i)) {
-                    ficherochar[i] = (char) abecedario.indexOf((i - 1) % 27);
-                }
-            }
-
-            String cadenaNueva = "";
-            for (int i = 0; i < ficherochar.length; i++){
-                cadenaNueva += ficherochar[i];
-            }
-            System.out.println(cadenaNueva);
-
-            PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
-
-            pw.println(cadenaNueva);
-            pw.close();
         }
+
+        String cadenaNueva = "";
+        for (int i = 0; i < ficherochar.length; i++){
+            cadenaNueva += ficherochar[i];
+        }
+        System.out.println(cadenaNueva);
+
+        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\Javi\\Desktop\\ficheroescribir.txt"));
+
+        pw.println(cadenaNueva);
+        pw.close();
+    }
 }
