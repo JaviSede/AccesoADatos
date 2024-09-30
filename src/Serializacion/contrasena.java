@@ -1,4 +1,8 @@
-public class Ejercicio2Ampliacion {
+package Serializacion;
+
+import java.io.*;
+
+public class contrasena {
     public static void main(String[] args) throws IOException {
       
     }
@@ -23,7 +27,6 @@ public class Ejercicio2Ampliacion {
 
         char[] ficherochar = fichero.toString().toCharArray();
         for (int i = 0; i < ficherochar.length; i++) {
-            int pos = abecedario.indexOf(ficherochar[i]);
             if (ficherochar[i] == abecedario.indexOf(i)) {
                 ficherochar[i] = (char) abecedario.indexOf((i + 1) % 27);
             }
