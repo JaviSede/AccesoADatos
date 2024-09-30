@@ -1,10 +1,8 @@
-package Serializacion;
-
 import java.io.*;
 
 public class contrasena {
     public static void main(String[] args) throws IOException {
-      
+        ejercicio2Desencriptar("si");
     }
 
     public static void ejercicio2Encriptar(String password) throws IOException {
@@ -25,10 +23,13 @@ public class contrasena {
             return;
         }
 
-        char[] ficherochar = fichero.toString().toCharArray();
+        char[] ficherochar = fichero.toCharArray();
         for (int i = 0; i < ficherochar.length; i++) {
-            if (ficherochar[i] == abecedario.indexOf(i)) {
-                ficherochar[i] = (char) abecedario.indexOf((i + 1) % 27);
+            for (int x = 0; x < abecedario.length(); x++) {
+                if (ficherochar[i] == abecedario.charAt(x)) {
+                    ficherochar[i] = abecedario.charAt((x + 1) % abecedario.length());
+                    break;
+                }
             }
         }
 
@@ -59,8 +60,9 @@ public class contrasena {
         }
 
         // Extraer contraseña
-        String[] lineas = fichero.split("\n");
-        String pass = lineas[0].replace("ENCRIPTADO:", "").trim();
+        String[] lineas = fichero.split;
+
+        String pass = lineas[0].replace("ENCRIPTADO:", "");
 
         // Comprobar contraseña
         if (!pass.equals(password)) {
@@ -73,9 +75,13 @@ public class contrasena {
         char[] ficherochar = textoEncriptado.toCharArray();
 
         for (int i = 0; i < ficherochar.length; i++) {
-            if (ficherochar[i] == abecedario.indexOf(i)) {
-                ficherochar[i] = (char) abecedario.indexOf((i - 1) % 27);
+            for (int j = 0; j <abecedario.length(); j++){
+                if (ficherochar[i] == abecedario.indexOf(j)) {
+                    ficherochar[i] = (char) abecedario.indexOf((j - 1) % 27);
+                    break;
+                }
             }
+
         }
 
         String cadenaNueva = new String(ficherochar);
