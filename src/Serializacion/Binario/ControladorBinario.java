@@ -95,7 +95,7 @@ public class ControladorBinario {
 
         for (int i = 0; i < numeroRegistros; i++){
 
-            int puntero = (64*1) + desp;
+            int puntero = (64*i) + desp;
             raf.seek(puntero);
 
             int edad = raf.readInt();

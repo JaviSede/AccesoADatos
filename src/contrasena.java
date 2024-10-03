@@ -8,7 +8,7 @@ public class contrasena {
     public static void ejercicio2Encriptar(String password) throws IOException {
         String abecedario = "abcdefghijklmnñopqrstvwxyz";
 
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\javit\\Desktop\\ficheroescribir.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\javi\\Desktop\\ficheroescribir.txt"));
         String fichero ="";
         String linea = "";
 
@@ -35,7 +35,7 @@ public class contrasena {
 
         String cadenaNueva = new String(ficherochar);
 
-        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\javit\\Desktop\\ficheroescribir.txt"));
+        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\javi\\Desktop\\ficheroescribir.txt"));
         pw.println("ENCRIPTADO:" + password);
         pw.println(cadenaNueva);
         pw.close();
@@ -44,7 +44,7 @@ public class contrasena {
     public static void ejercicio2Desencriptar(String password) throws IOException {
         String abecedario = "abcdefghijklmnñopqrstvwxyz";
 
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\javit\\Desktop\\ficheroescribir.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\javi\\Desktop\\ficheroescribir.txt"));
         StringBuilder fichero = new StringBuilder();
         String linea;
 
@@ -64,7 +64,7 @@ public class contrasena {
 
         String[] lineas = contenidoFichero.split("\\r?\\n");
 
-        // Extraer el texto encriptado de la segunda línea
+        // Extraer el texto encriptado de la segunda línea y la contraseña
         String contra = lineas[0].trim();
         String textoEncriptado = lineas[1].trim();
 
