@@ -41,7 +41,43 @@ public class Diario {
         }
     }
 
-    public void modificarEntrada(String fecha) throws IOException{
+    public void modificarEntrada(String fecha, String entradaNueva) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fichero));
+        String linea;
+        String contenidoFichero = "";
+        while ((linea = br.readLine()) != null){
+            if (linea.contains(fecha)){
+                linea = fecha + " " + entradaNueva;
+            }
+            contenidoFichero += linea + "\n";
+        }
+        br.close();
+        PrintWriter pw = new PrintWriter(new FileWriter(fichero));
+        pw.println(contenidoFichero);
+        pw.close();
+    }
 
+    public void mostrarDiario() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fichero));
+        String linea;
+        while ((linea = br.readLine()) != null){
+            System.out.println(linea);
+        }
+    }
+
+    public void borrarEntrada(String fecha) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fichero));
+        String linea;
+        String contenidoFichero = "";
+        while ((linea = br.readLine()) != null){
+            if (linea.contains(fecha)){
+                linea = "";
+            }
+            contenidoFichero += linea + "\n";
+        }
+        br.close();
+        PrintWriter pw = new PrintWriter(new FileWriter(fichero));
+        pw.println(contenidoFichero);
+        pw.close();
     }
 }
