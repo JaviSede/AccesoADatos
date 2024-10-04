@@ -1,3 +1,5 @@
+package Tema1;
+
 import java.io.*;
 
 public class contrasena {

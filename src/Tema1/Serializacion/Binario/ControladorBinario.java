@@ -1,7 +1,6 @@
-package Serializacion.Binario;
+package Tema1.Serializacion.Binario;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;

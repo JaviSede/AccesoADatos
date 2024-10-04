@@ -1,4 +1,4 @@
-package Ejercicio3;
+package Tema1.Ejercicio3;
 
 public class Ciudad {
     private int ID;

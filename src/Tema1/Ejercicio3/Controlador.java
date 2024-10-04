@@ -1,10 +1,7 @@
-package Ejercicio3;
-
-import Serializacion.Binario.Persona;
+package Tema1.Ejercicio3;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Controlador {
     public static void main(String[] args) throws IOException {

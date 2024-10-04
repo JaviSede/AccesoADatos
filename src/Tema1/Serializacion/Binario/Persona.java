@@ -1,4 +1,4 @@
-package Serializacion.Binario;
+package Tema1.Serializacion.Binario;
 
 public class Persona {
     private String nombre;
