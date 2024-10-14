@@ -91,12 +91,12 @@ public class Diario {
     public void exportarXML(String xml) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(fichero));
         BufferedWriter bw = new BufferedWriter(new FileWriter(xml));
-        bw.write("<xml>" + "\n");
         int contador = 0;
         String linea;
+        bw.write("<xml>" + "\n");
         br.readLine();
-        while ((linea = br.readLine()) != null){
-            String [] registros = linea.split(" ");
+        while ((linea = br.readLine()) != null) {
+            String[] registros = linea.split(" ", 2);
             String fecha = "<fecha>" + registros[0] + "</fecha>" + "\n";
             String entrada = "<entrada>" + registros[1] + "</entrada>" + "\n";
             bw.write("    <entrada" + contador + ">" + "\n");
@@ -106,6 +106,28 @@ public class Diario {
             contador++;
         }
         bw.write("</xml>");
+        bw.close();
+        br.close();
+    }
+
+    public void exportarHTML(String html) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fichero));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(html));
+        int contador = 0;
+        String linea;
+        bw.write("<html>" + "\n");
+        br.readLine();
+        while ((linea = br.readLine()) != null) {
+            String[] registros = linea.split(" ", 2);
+            String fecha = "<p>" + registros[0] + "</p>" + "\n";
+            String entrada = "<p>" + registros[1] + "</p>" + "\n";
+            bw.write("    <div>" + "\n");
+            bw.write("        " + fecha);
+            bw.write("        " + entrada);
+            bw.write("    </div>" + "\n");
+            contador++;
+        }
+        bw.write("</html>");
         bw.close();
         br.close();
     }
