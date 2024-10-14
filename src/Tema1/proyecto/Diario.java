@@ -91,18 +91,18 @@ public class Diario {
     public void exportarXML(String xml) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(fichero));
         BufferedWriter bw = new BufferedWriter(new FileWriter(xml));
-        bw.write("<xml>");
+        bw.write("<xml>" + "\n");
         int contador = 0;
         String linea;
         br.readLine();
         while ((linea = br.readLine()) != null){
             String [] registros = linea.split(" ");
-            String fecha = "<fecha>" + registros[0] + "</fecha>";
-            String entrada = "<entrada>" + registros[1] + "</entrada>";
-            bw.write("    <entrada" + contador + ">");
+            String fecha = "<fecha>" + registros[0] + "</fecha>" + "\n";
+            String entrada = "<entrada>" + registros[1] + "</entrada>" + "\n";
+            bw.write("    <entrada" + contador + ">" + "\n");
             bw.write("        " + fecha);
             bw.write("        " + entrada);
-            bw.write("    </entrada" + contador + ">");
+            bw.write("    </entrada" + contador + ">" + "\n");
             contador++;
         }
         bw.write("</xml>");
