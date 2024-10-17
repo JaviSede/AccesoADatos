@@ -16,9 +16,29 @@ public class main {
             }
 
             //Actualizacion
-            consulta.executeUpdate("insert into prueba(idprueba) values(2)");
+            // consulta.executeUpdate("insert into prueba(idprueba) values(2)");
+
+            // Transacciones
+            conexion.setAutoCommit(false);
+            try {
+                consulta.executeUpdate("insert into prueba(idprueba) values(3)");
+                consulta.executeUpdate("insert into prueba(idprueba) values(4)");
+                consulta.executeUpdate("insert into prueba(idprueba) values(5)");
+                conexion.commit();
+            } catch (SQLException e) {
+                conexion.rollback();
+            }
 
 
+            //Consulta con metadatos
+            rs = consulta.executeQuery("select * from prueba");
+            ResultSetMetaData rsmd = rs.getMetaData();
+            while (rs.next()) {
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    System.out.print(rsmd.getColumnName(i) + " = " + rs.getString(rsmd.getColumnName(i)) + " ");
+                }
+                System.out.println("");
+            }
             rs.close();
             conexion.close();
         } catch (SQLException e) {
