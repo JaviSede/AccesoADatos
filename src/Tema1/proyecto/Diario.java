@@ -138,7 +138,7 @@ public class Diario {
         String anyo;
         String fecha;
         System.out.print("Bienvenido al programa, dispone de las siguiente funcionalidades: Agregar entrada (1), Buscar entrada (2), Modificar entrada (3)," +
-                " Mostrar diario (4), Borrar entrada (5): ");
+                " Mostrar diario (4), Borrar entrada (5), Exportar a XML (6), Exportar a HTML (7): ");
         Scanner sc = new Scanner(System.in);
         Scanner scanerTexto = new Scanner(System.in);
         int opcion = sc.nextInt();
@@ -210,6 +210,38 @@ public class Diario {
                 sc.close();
                 scanerTexto.close();
                 borrarEntrada(fecha);
+                break;
+            case 6:
+                System.out.println("Introduce la ruta del fichero XML: ");
+                String xml = scanerTexto.nextLine();
+                exportarXML(xml);
+                break;
+            case 7:
+                System.out.println("Introduce la ruta del fichero HTML");
+                String html = scanerTexto.nextLine();
+                exportarHTML(html);
+                break;
+            case 8:
+                System.out.println("Introduce la contraseña: ");
+                String con = scanerTexto.nextLine();
+                System.out.println("Introduce la ruta al fichero encriptado: ");
+                String enc = scanerTexto.nextLine();
+                File fenc = new File(enc);
+                Cifrado.encriptar(con, fichero, fenc);
+                break;
+            case 9:
+                System.out.println("Introduce la ruta del fichero a desencriptar: ");
+                String encrip = scanerTexto.nextLine();
+                File fencrip = new File(encrip);
+                System.out.println("Introduce la contraseña: ");
+                String pass = scanerTexto.nextLine();
+                System.out.println("Introduce la ruta al desencriptado: ");
+                String desen  = scanerTexto.nextLine();
+                File fdesdesenc = new File(desen);
+                Cifrado.desencriptar(pass, fencrip, fdesdesenc);
+                break;
+            default:
+                System.err.println("La opcion introducida no es valida");
                 break;
         }
     }
