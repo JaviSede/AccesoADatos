@@ -137,8 +137,8 @@ public class Diario {
         String mes;
         String anyo;
         String fecha;
-        System.out.print("Bienvenido al programa, dispone de las siguiente funcionalidades: Agregar entrada (1), Buscar entrada (2), Modificar entrada (3)," +
-                " Mostrar diario (4), Borrar entrada (5), Exportar a XML (6), Exportar a HTML (7): ");
+        System.out.print("Bienvenido al programa, dispone de las siguiente funcionalidades: Agregar entrada (1), Buscar entrada (2), Modificar entrada (3)," + "\n" +
+                " Mostrar diario (4), Borrar entrada (5), Exportar a XML (6), Exportar a HTML (7), Encriptar (8), Desencriptar (9): ");
         Scanner sc = new Scanner(System.in);
         Scanner scanerTexto = new Scanner(System.in);
         int opcion = sc.nextInt();
@@ -224,7 +224,7 @@ public class Diario {
             case 8:
                 System.out.println("Introduce la contraseña: ");
                 String con = scanerTexto.nextLine();
-                System.out.println("Introduce la ruta al fichero encriptado: ");
+                System.out.println("Introduce la ruta del fichero a encriptar: ");
                 String enc = scanerTexto.nextLine();
                 File fenc = new File(enc);
                 Cifrado.encriptar(con, fichero, fenc);

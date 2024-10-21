@@ -18,10 +18,13 @@ public class Cifrado {
 
     private static void hacerCrypto(int cipherMode, String key, File inputFile, File outputFile)  {
         try {
+            // Se crea una clave que sirve para encriptar en AES
             Key secretKey = new SecretKeySpec(key.getBytes(), "AES");
+            // Se crea la instancia del encriptador.
             Cipher cipher = Cipher.getInstance("AES");
+            // Se inicializa el encriptador
             cipher.init(cipherMode, secretKey);
-
+            // Se escribe en el fichero.
             FileInputStream inputStream = new FileInputStream(inputFile);
 
             byte[] inputBytes = new byte[(int) inputFile.length()];
