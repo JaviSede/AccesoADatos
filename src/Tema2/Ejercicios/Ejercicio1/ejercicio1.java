@@ -1,4 +1,4 @@
-package Tema2.Ejercicios;
+package Tema2.Ejercicios.Ejercicio1;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -58,11 +58,11 @@ public class ejercicio1 {
                     conexion.close();
                     break;
                 case 2:
-                    System.out.println("Ingresa el ID de la pais: ");
-                    int id2 = sc.nextInt();
-                    System.out.print("Ingresa el nombre de la pais: ");
+                    System.out.println("Ingresa el ID del pais: ");
+                    String id2 = sc.next();
+                    System.out.print("Ingresa el nombre del pais: ");
                     String nombre2 = sc.next();
-                    System.out.print("Ingresa el continente de la pais: ");
+                    System.out.print("Ingresa el continente del pais: ");
                     String continente = sc.next();
                     System.out.print("Ingresa la region del pais: ");
                     String region = sc.next();
@@ -91,22 +91,21 @@ public class ejercicio1 {
                     sc.close();
                     Statement st2 = conexion.createStatement();
                     st2.executeUpdate("update country SET Name ='" + nombre2 + "', Continent = '"+ continente + "', Region = '" + region + "', SurfaceArea = " + area +
-                            ", IndepYear = " + indepYear + ", Population = " + poblacion2 + ", LifeExpentacy = " + vida + ", GNP = " + gnp + ", GNPOld = " + gnpold +
-                            ", LocalName = '" + localName + "', GovernmentForm = '" + forma + "', HeadOfState = '"+ cabeza +"', Capital = " + capital + ", code2 = " + code2 +" WHERE id = " + id2);
+                            ", IndepYear = " + indepYear + ", Population = " + poblacion2 + ", LifeExpectancy = " + vida + ", GNP = " + gnp + ", GNPOld = " + gnpold +
+                            ", LocalName = '" + localName + "', GovernmentForm = '" + forma + "', HeadOfState = '"+ cabeza +"', Capital = " + capital + ", Code2 = '" + code2 +"' WHERE code = '" + id2 + "';");
                     st2.close();
                     conexion.close();
                     break;
-                // TODO terminar la mierda esta y ver porque cojones falla
                 case 3:
                     System.out.print("Ingresa el idioma: ");
                     String idioma = sc.next();
-                    System.out.print("Ingresa oficial es oficial (1: true, 0: false): ");
-                    boolean oficial = sc.nextBoolean();
+                    System.out.print("Ingresa oficial es oficial (T: true, F: false): ");
+                    String oficial = sc.next();
                     System.out.println("Ingresa el porcentaje: ");
                     float porcentaje = sc.nextFloat();
                     sc.close();
                     Statement st3 = conexion.createStatement();
-                    st3.executeUpdate("update countrylanguage set Language = '" + idioma + "', isOfficial =" + oficial + ", Percentaje = " + porcentaje + " where Language ='" + idioma + "';");
+                    st3.executeUpdate("update countrylanguage set Language = '" + idioma + "', isOfficial = '" + oficial + "', Percentage = " + porcentaje + " where Language ='" + idioma + "';");
                     st3.close();
                     conexion.close();
                     break;
