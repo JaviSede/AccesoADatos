@@ -96,7 +96,7 @@ public class ejercicio1 {
                     st2.close();
                     conexion.close();
                     break;
-                    // TODO terminar la mierda esta y ver porque cojones falla
+                // TODO terminar la mierda esta y ver porque cojones falla
                 case 3:
                     System.out.print("Ingresa el idioma: ");
                     String idioma = sc.next();
