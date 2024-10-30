@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Ejercicio2 {
 
-    public void insertarStore() {
+    private void insertarStore() {
         Connection conexion = null;
         PreparedStatement pstmt = null;
         Scanner sc = new Scanner(System.in);
@@ -44,7 +44,7 @@ public class Ejercicio2 {
         }
     }
 
-    public void insertarStaff() {
+    private void insertarStaff() {
         Connection conexion = null;
         PreparedStatement pstmt = null;
         Scanner sc = new Scanner(System.in);
@@ -98,7 +98,7 @@ public class Ejercicio2 {
         }
     }
 
-    public void actualizarStore(int idStaff, int tienda){
+    private void actualizarStore(int idStaff, int tienda){
         Connection conexion = null;
         PreparedStatement pstmt = null;
 
@@ -122,6 +122,25 @@ public class Ejercicio2 {
             } catch (SQLException rollbackEx) {
                 System.out.println(rollbackEx);
             }
+        }
+    }
+
+    public void menu(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("-- Menu Store - Staff --");
+        System.out.println("");
+        System.out.println("1) Insertar store...");
+        System.out.println("2) Insertar staff...");
+        int opcion = sc.nextInt();
+        switch (opcion) {
+            case 1:
+                insertarStore();
+                break;
+            case 2:
+                insertarStaff();
+                break;
+            default:
+                System.err.println("Opcion no valida");
         }
     }
 }
